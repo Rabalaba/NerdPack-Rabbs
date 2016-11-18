@@ -9,4 +9,5 @@
   <!-- Rotations -->
   <Script file="rotations\druid\resto.lua" />
   <Script file="rotations\druid\feral.lua" />
+  <Script file="rotations\druid\guardian.lua" />
 </Ui>

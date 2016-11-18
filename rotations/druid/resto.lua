@@ -24,7 +24,7 @@ local ST = {
 {'Swiftmend', 'lowest(DAMAGER).health<30', 'lowest(DAMAGER)'},
 {'Wild Growth', 'lowest5.health<80', 'lowest1(TANK)'},
 {'Flourish', 'lastcast(Wild Growth)'},
-{'Essence of G/Hanir', 'lastcast(Flourish)'},
+{'Essence of G\'Hanir', 'lastgcd(Flourish)'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
 {'Regrowth', { 'lowest1(TANK).health<35', 'player.buff(207640).count <= 3'}, 'lowest1(TANK)'},
 {'Healing Touch', { 'lowest1(TANK).health<35', 'player.buff(207640).count > 3'}, 'lowest1(TANK)'},
@@ -102,6 +102,7 @@ local outCombat = {
 {'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<95', 'lnbuff1(TANK,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<90', 'lnbuff1(HEALER,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health<88', 'lnbuff1(DAMAGER,Rejuvenation)'},
+
 
 }
 

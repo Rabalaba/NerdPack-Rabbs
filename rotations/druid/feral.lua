@@ -95,12 +95,12 @@ local ST = {
 	{'5217', '!player.buff(135700)&player.energydiff>=60}||player.energydiff>=80'},
 	{FBA, 'target.debuff(1079)&target.debuff(1079).duration<3&ttd>3&{target.health<25||talent(6,1)}'},
 	{HT, 'talent(7,2)&player.buff(69369)&!player.buff(145152)&{{player.combopoints>=5||player.buff(69369).duration<gcd}||{player.combopoints==2&spell(210722).cooldown<gcd}}'},
-	{SR, '{!player.buff(52610)&{player.combopoints=5||!player.buff(52610)&{talent(7,1)&spell(202028).charges>0}&talent(5,2)}}'},
+	{SR, '!player.buff(52610)&player.combopoints=5'},
 	{'106830', 'player.area(8).enemies>=5&{target.debuff(106830).duration<0.3||!target.debuff(106830)}'},
 	{'106785', 'player.area(8).enemies>=8'},
-	{RP, '{!target.debuff(1079)||{target.debuff(1079).duration<8&target.health>25&!talent(6,1)}}&{target.ttd>8&player.combopoints=5}&{player.energydiff<20||player.buff(106951)||player.buff(102543)||player.buff(202060)||spell(5217).cooldown<3||player.buff(135700)||talent(5,1)||!target.defuff(1079)||{target.debuff(1822).duration<1.5}}'},
-	{SR, '{player.buff(52610).duration<=10.5||player.buff(52610).duration<=7.2&!talent(6,2)}&{player.combopoints>=5}&{player.energydiff<20||player.buff(106951)||player.buff(102543)||player.buff(202060)||spell(5217).cooldown<3||player.buff(135700)||talent(5,1)||!target.defuff(1079)||{target.debuff(1822).duration<1.5}}'},
-	{FBB, 'player.combopoints>=5&{player.energydiff<20||player.buff(106951)||player.buff(102543)||player.buff(202060)||spell(5217).cooldown<3||{talent(7,3)&player.buff(135700)}}'},
+	{RP, 'player.buff(52610)&{!target.debuff(1079)||{target.debuff(1079).duration<8&target.health>25&!talent(6,1)}}&{target.ttd>8&player.combopoints=5}'},
+	{SR, '{player.buff(52610).duration<=10.5||player.buff(52610).duration<=7.2&!talent(6,2)}&{player.combopoints>=5}'},
+	{FBB, 'player.combopoints>=5&player.energydiff<20'},
 	{GP, 'player.combopoints < 5'},
 
 }
