@@ -2,6 +2,7 @@ local _, Rabbs = ...
 
 local exeOnLoad = function()
 	Rabbs.ExeOnLoad()
+       
 
 	print('|cffADFF2F ----------------------------------------------------------------------|r')
 	print('|cffADFF2F --- |rDRUID |cffFFA500Feral |r')
@@ -28,74 +29,69 @@ local Survival = {
 }
 
 local Interrupts = {
-	{'106839'},
+	{'Skull Bash'},
 	
 }
 
 local Cooldowns = {
-
+    {'Berserk', 'Rabbs4=106951', 'target'},
+    {'Tiger\'s Fury', 'Rabbs1=5217', 'target'},
+    {'Ashamane\'s Frenzy', 'Rabbs1=210722||Rabbs2=210722', 'target'},
+    
+    
 }
-
-
---[[Finishing Moves]]
-local EG = {
-	{'202060'},
-}
-
-local HT = {
-	{'8936'},
-}
-
-local SR = {
-	{'52610'},
-}
-
-local FBA = {
-	{'22568'},
-}
-
-local FBB = {
-	{'22568', 'player.energy >= 50'},
-}
-
-
-local RP = {
+local Rip = {
+	{'%pause', 'player.energy<30&!player.buff(Clearcasting)'},
 	{'Rip'},
 }
 
-local GP = {
-	{'202028', 'talent(7,1)'},
-	
-	{EG, 'talent(6,3)&player.combopoints<=0&spell(202060).cooldown<3'},
-	{'106830', 'talent(7,2)&player.area(8).enemies>=9'},
-	{'106785', 'player.area(8).enemies>=6'},
-	{'1822', '!target.debuff(155722)'},
-	{'1822', 'target.debuff(155722).duration <= 5'},
-	{'1822', 'player.buff(145152)', '!lastcast(1822)'},
-	{'155625', '!target.debuff(155625)'},
-	{'155625', 'target.debuff(155625).duration < 4'},
-	{'106785', 'player.area(8).enemies>=3'},
-	{'5221'},
-}
-local Cat = {
-	{'768', '!player.buff(768)'},
+local Savage_Roar = {
+	{'%pause', 'player.energy<40&!player.buff(Clearcasting)'},
+	{'Savage Roar'},
 }
 
-local Leap = {
-	{'102401', 'target.range>8&target.range<25&talent(3,2)&player.buff(768)'},
+local Ferocious_Bite = {
+	{'%pause', 'player.energy<25&!player.buff(Clearcasting)'},
+	{'Ferocious Bite'},
+}
+
+local Thrash = {
+	{'%pause', 'player.energy<50&!player.buff(Clearcasting)'},
+	{'Thrash'},
+}
+
+local Swipe = {
+	{'%pause', 'player.energy<45&!player.buff(Clearcasting)'},
+	{'Swipe'},
+}
+
+local AOE = {
+{'Ferocious Bite', 'Rabbs3=22568', 'target'},
+{'Moonfire', 'Rabbs3=155625', 'target'},
+{'Rake', 'Rabbs3=1822', 'target'},
+{'Regrowth', 'Rabbs3=8936', 'target'},
+{'Rip', 'Rabbs3=1079', 'target'},
+{'Savage Roar', 'Rabbs3=52610', 'target'},
+{'Shred', 'Rabbs3=5221', 'target'},
+{'Swipe', 'Rabbs3=106785', 'target'},
+{'Thrash', 'Rabbs3=106830', 'target'},
+
+	
 }
 
 local ST = {
-    {'!Ashamane\'s Frenzy', 'combo_points<=2&toggle(cooldowns)&{player.buff(Bloodtalons)||!talent(7,2)}&{player.buff(Savage Roar)||!talent(5,3)}'},
-    {'rake', 'OvaleBestAction==1822', 'target'},
-    {'moonfire', 'OvaleBestAction==155625', 'target'},
-    {'Savage Roar', 'OvaleBestAction==52610', 'target'},
-    {'Ferocious Bite', 'OvaleBestAction==22568', 'target'},
-    {'rip', 'OvaleBestAction==1079', 'target'},
-    {'Regrowth', 'OvaleBestAction==8936', 'lowest'},
-    {'shred', 'OvaleBestAction==5221', 'target'},
-    {'Tiger\'s Fury', 'OvaleBestAction2==5217', 'target'},
-    {'Berserk', 'OvaleBestAction==106951', 'target'},
+
+
+
+{'Ferocious Bite', 'Rabbs2=22568', 'target'},
+{'Moonfire', 'Rabbs2=155625', 'target'},
+{'Rake', 'Rabbs2=1822', 'target'},
+{'Regrowth', 'Rabbs2=8936', 'target'},
+{'Rip', 'Rabbs2=1079', 'target'},
+{'Savage Roar', 'Rabbs2=52610', 'target'},
+{'Shred', 'Rabbs2=5221', 'target'},
+{'Swipe', 'Rabbs2=106785', 'target'},
+{'Thrash', 'Rabbs2=106830', 'target'},
 
 
 }
@@ -105,10 +101,11 @@ local inCombat = {
 	{Keybinds},
 	{Cooldowns, 'toggle(cooldowns)'},
 	{Cat, '!player.buff(768)'},
-	{Interrupts, 'target.interruptAt(15)'},
+	{Interrupts, 'target.interruptAt(1)&toggle(interrupts)&target.infront&target.range<=8'},
 	{Survival, 'player.health < 25'},
 	{Leap, 'target.range>8&target.range<25&talent(3,2)&player.buff(768)&target.infront'},
-	{ST, {'target.range < 8', 'target.infront'}}
+    {AOE, {'player.area(8).enemies>=5'}},
+	{ST, {'target.range < 8', 'target.infront'}},
 }
 
 local outCombat = {
@@ -116,4 +113,4 @@ local outCombat = {
 	{Precombat},
 }
 
-NeP.CR:Add(103, '[|cff'..Rabbs.addonColor..'Rabbs|r] DRUID - Feral', inCombat, outCombat,exeOnLoad)
+NeP.CR:Add(103, 'Rabbs', inCombat, outCombat,exeOnLoad)

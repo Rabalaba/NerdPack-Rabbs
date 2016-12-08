@@ -2,12 +2,7 @@ local _, Rabbs = ...
 
 local exeOnLoad = function()
 	Rabbs.ExeOnLoad()
-    NeP.Interface:AddToggle({
-		key = 'taunt',
-		name = 'Taunt Units',
-		text = 'Enable to taunt units you dont have aggro from.',
-		icon = 'Interface\\Icons\\Ability_warrior_charge',
-	})
+
 
 	print('|cffADFF2F ----------------------------------------------------------------------|r')
 	print('|cffADFF2F --- |rDRUID |cffFFA500Guardian |r')
@@ -45,8 +40,6 @@ local Cooldowns = {
     {'Barkskin', 'new_incdmg>{0.00006*player.health*player.health*player.health.max}'},
     {'Survival Instincts', '!lastgcd(Barkskin)&new_incdmg>{0.0006*player.health*player.health*player.health.max}&!player.buff(Barkskin)&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
     {'Survival Instincts', '!lastgcd(Barkskin)&new_incdmg>{0.0012*player.health*player.health*player.health.max}'},
-	{'Bristling Fur', '{100*new_incdmg/player.health.max}>{100-player.rage}&player.rage<45'},
-	{'Incarnation: Guardian of Ursoc', 'target.ttd > 30'}
 }
 
 local AOE = {
@@ -67,9 +60,8 @@ local inCombat = {
 	{Keybinds},
     {Interrupts, 'target.interruptAt(1)&toggle(interrupts)&target.infront&target.range<=8'},
 	{Cooldowns, 'toggle(cooldowns)'},
-	{'%taunt(Growl)', 'toggle(taunt)'},
     {AOE, 'player.area(8).enemies>=5&toggle(multitarget)'},
-	{ST, 'target.inmelee'}
+	{ST, 'target.range < 8', 'target.infront'}
 }
 
 local outCombat = {

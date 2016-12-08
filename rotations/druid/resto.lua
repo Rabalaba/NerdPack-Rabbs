@@ -16,16 +16,19 @@ local Keybinds = {
 }
 
 local ST = {
-{'Regrowth', 'player.buff(16870)', 'lowest'},
-{'Swiftmend', 'lowest1(TANK).health<50', 'lowest1(TANK)'},
-{'Swiftmend', 'lowest2(TANK).health<50', 'lowest2(TANK)'},
-{'Swiftmend', 'player.health<40', 'player'},
-{'Swiftmend', 'lowest1(HEALER).health<35', 'lowest1(HEALER)'},
-{'Swiftmend', 'lowest(DAMAGER).health<30', 'lowest(DAMAGER)'},
+{'Cenarion Ward', 'lowest1(tank).health<=80', 'lowest1(tank)'},
+{'Regrowth', 'player.buff(Clearcasting)', 'lowest'},
+{'Swiftmend', 'lowest1(TANK).health<70', 'lowest1(TANK)'},
+{'Swiftmend', 'lowest2(TANK).health<70', 'lowest2(TANK)'},
+{'Swiftmend', 'player.health<60', 'player'},
+{'Swiftmend', 'lowest1(HEALER).health<60', 'lowest1(HEALER)'},
+{'Swiftmend', 'lowest(DAMAGER).health<60', 'lowest(DAMAGER)'},
+{'Wild Growth', 'lastcast(Swiftmend)', 'lowest1(TANK)'},
 {'Wild Growth', 'lowest5.health<80', 'lowest1(TANK)'},
 {'Flourish', 'lastcast(Wild Growth)'},
 {'Essence of G\'Hanir', 'lastgcd(Flourish)'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
+    {'Regrowth', 'lowest.health<50', 'lowest'},
 {'Regrowth', { 'lowest1(TANK).health<35', 'player.buff(207640).count <= 3'}, 'lowest1(TANK)'},
 {'Healing Touch', { 'lowest1(TANK).health<35', 'player.buff(207640).count > 3'}, 'lowest1(TANK)'},
 {'Regrowth', { 'lowest2(TANK).health<35', 'player.buff(207640).count <= 3'}, 'lowest2(TANK)'},
@@ -39,16 +42,16 @@ local ST = {
 
 
 
-{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<95', 'lnbuff1(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health<95', 'lnbuff2(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<90', 'lnbuff1(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health<88', 'lnbuff1(DAMAGER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(HEALER,Rejuvenation).health<90', 'lnbuff2(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(DAMAGER,Rejuvenation).health<88', 'lnbuff2(DAMAGER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff3(HEALER,Rejuvenation).health<90', 'lnbuff3(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff3(DAMAGER,Rejuvenation).health<88', 'lnbuff3(DAMAGER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff4(HEALER,Rejuvenation).health<90', 'lnbuff4(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff4(DAMAGER,Rejuvenation).health<88', 'lnbuff4(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<90', 'lnbuff1(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health<90', 'lnbuff2(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<80', 'lnbuff1(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health<70', 'lnbuff1(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(HEALER,Rejuvenation).health<60', 'lnbuff2(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(DAMAGER,Rejuvenation).health<60', 'lnbuff2(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff3(HEALER,Rejuvenation).health<60', 'lnbuff3(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff3(DAMAGER,Rejuvenation).health<60', 'lnbuff3(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff4(HEALER,Rejuvenation).health<60', 'lnbuff4(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff4(DAMAGER,Rejuvenation).health<60', 'lnbuff4(DAMAGER,Rejuvenation)'},
 {'Healing Touch', 'lowest1(TANK).health<50', 'lowest1(TANK)'},
 {'Healing Touch', 'lowest2(TANK).health<50', 'lowest2(TANK)'},
 {'Healing Touch', 'player.health<60', 'player'},
@@ -78,15 +81,15 @@ local ST = {
 }
 
 local Moving = {
-{'Swiftmend', 'lowest1(TANK).health<50', 'lowest1(TANK)'},
-{'Swiftmend', 'lowest2(TANK).health<50', 'lowest2(TANK)'},
-{'Swiftmend', 'player.health<40', 'player'},
-{'Swiftmend', 'lowest1(HEALER).health<35', 'lowest1(HEALER)'},
-{'Swiftmend', 'lowest(DAMAGER).health<30', 'lowest(DAMAGER)'},
+{'Swiftmend', 'lowest1(TANK).health<70', 'lowest1(TANK)'},
+{'Swiftmend', 'lowest2(TANK).health<70', 'lowest2(TANK)'},
+{'Swiftmend', 'player.health<60', 'player'},
+{'Swiftmend', 'lowest1(HEALER).health<60', 'lowest1(HEALER)'},
+{'Swiftmend', 'lowest(DAMAGER).health<60', 'lowest(DAMAGER)'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
-{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<95', 'lnbuff1(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<90', 'lnbuff1(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health<88', 'lnbuff1(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<70', 'lnbuff1(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<60', 'lnbuff1(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health<60', 'lnbuff1(DAMAGER,Rejuvenation)'},
 }
 
 local inCombat = {
