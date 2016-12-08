@@ -28,7 +28,7 @@ local ST = {
 {'Flourish', 'lastcast(Wild Growth)'},
 {'Essence of G\'Hanir', 'lastgcd(Flourish)'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
-    {'Regrowth', 'lowest.health<50', 'lowest'},
+{'Regrowth', 'lowest.health<50', 'lowest'},
 {'Regrowth', { 'lowest1(TANK).health<35', 'player.buff(207640).count <= 3'}, 'lowest1(TANK)'},
 {'Healing Touch', { 'lowest1(TANK).health<35', 'player.buff(207640).count > 3'}, 'lowest1(TANK)'},
 {'Regrowth', { 'lowest2(TANK).health<35', 'player.buff(207640).count <= 3'}, 'lowest2(TANK)'},
@@ -42,6 +42,7 @@ local ST = {
 
 
 
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation(Germination)).health<90', 'lnbuff1(TANK,Rejuvenation(Germination))'},
 {'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health<90', 'lnbuff1(TANK,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health<90', 'lnbuff2(TANK,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health<80', 'lnbuff1(HEALER,Rejuvenation)'},

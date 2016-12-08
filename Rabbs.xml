@@ -14,4 +14,5 @@
   <Script file="rotations\priest\shadow.lua" />
   <Script file="rotations\dk\frost.lua" />
   <Script file="rotations\rogue\combat.lua" />
+  <Script file="rotations\rogue\asshat.lua" />
 </Ui>
