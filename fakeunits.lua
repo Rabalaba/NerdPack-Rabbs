@@ -28,3 +28,17 @@ NeP.FakeUnits:Add('DispelNone', function(spell)
     table.sort( tempTable, function(a,b) return a.health < b.health end )
     return tempTable[num] and tempTable[num].key
 end)
+
+NeP.FakeUnits:Add('lowestpredicted', function(num, role)
+	local tempTable = {}
+	for _, Obj in pairs(NeP.OM:GetRoster()) do
+		if not role or (role and Obj.role == role:upper()) then
+			tempTable[#tempTable+1] = {
+				key = Obj.key,
+				healthPredict = Obj.healthPredict
+			}
+		end
+	end
+	table.sort( tempTable, function(a,b) return a.healthPredict < b.healthPredict end )
+	return tempTable[num] and tempTable[num].key
+end)

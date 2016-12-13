@@ -15,4 +15,8 @@
   <Script file="rotations\dk\frost.lua" />
   <Script file="rotations\rogue\combat.lua" />
   <Script file="rotations\rogue\asshat.lua" />
+  <Script file="rotations\hunter\bm.lua" />
+  <Script file="rotations\warlock\demo.lua" />
+  <Script file="rotations\warlock\destro.lua" />
+  <Script file="rotations\mage\fire.lua" />
 </Ui>
