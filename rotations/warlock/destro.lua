@@ -29,6 +29,7 @@ local GUI = {
 
 local Keybinds = {
 	{'%pause', 'keybind(alt)'},
+    {'Cataclysm', 'keybind(shift)', 'cursor.ground'},
 }
 
 local Precombat = {
@@ -103,7 +104,9 @@ local SCD = {
 {'Wisdom of the Four Winds', 'Rabbs1=115913', 'target'},
 {'Thal\'kiel\'s Consumption', 'Rabbs1=211714', 'target'},
 {'Grimoire: Felguard', 'Rabbs1=111898', 'target'},
-
+{'Grimoire of Sacrifice', 'Rabbs1=108503','target'},
+{'Dimensional Rift', 'Rabbs1=196586','target'},
+{'Channel Demonfire', 'Rabbs1=196447','target'},
  
 }
 
@@ -166,7 +169,9 @@ local LCD = {
 {'Wisdom of the Four Winds', 'Rabbs4=115913', 'target'},
 {'Thal\'kiel\'s Consumption', 'Rabbs4=211714', 'target'},
 {'Grimoire: Felguard', 'Rabbs4=111898', 'target'},
-
+{'Grimoire of Sacrifice', 'Rabbs4=108503','target'},
+{'Dimensional Rift', 'Rabbs4=196586','target'},
+{'Channel Demonfire', 'Rabbs4=196447','target'},
 
 
 
@@ -232,7 +237,9 @@ local AOE = {
 {'Wisdom of the Four Winds', 'Rabbs3=115913', 'target'},
 {'Thal\'kiel\'s Consumption', 'Rabbs3=211714', 'target'},
 {'Grimoire: Felguard', 'Rabbs3=111898', 'target'},
-
+{'Grimoire of Sacrifice', 'Rabbs3=108503','target'},
+{'Dimensional Rift', 'Rabbs3=196586','target'},
+{'Channel Demonfire', 'Rabbs3=196447','target'},
 
 
 
@@ -294,9 +301,11 @@ local ST = {
 {'Unending Breath', 'Rabbs2=5697', 'target'},
 {'Unending Resolve', 'Rabbs2=104773', 'target'},
 {'Weapon Skills', 'Rabbs2=76299', 'target'},
-{'Thal\'kiel\'s Consumption', 'Rabbs2=211714', 'target'},
 {'Grimoire: Felguard', 'Rabbs2=111898', 'target'},
 {'Wisdom of the Four Winds', 'Rabbs2=115913', 'target'},
+{'Grimoire of Sacrifice', 'Rabbs2=108503','target'},
+{'Dimensional Rift', 'Rabbs2=196586','target'},
+{'Channel Demonfire', 'Rabbs2=196447','target'},
     
 
 

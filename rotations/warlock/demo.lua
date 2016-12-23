@@ -112,7 +112,7 @@ local SCD = {
 {'Thal\'kiel\'s Consumption', 'Rabbs1=211714', 'target'},
 {'Shadowflame', 'Rabbs1=205181', 'target'},
 {'Demonbolt', 'Rabbs1=157695', 'target'},
-
+{'Implosion', 'Rabbs1=196277', 'target'},
  
 }
 
@@ -181,7 +181,7 @@ local LCD = {
 {'Thal\'kiel\'s Consumption', 'Rabbs4=211714', 'target'},
 {'Shadowflame', 'Rabbs4=205181', 'target'},
 {'Demonbolt', 'Rabbs4=157695', 'target'},
-
+{'Implosion', 'Rabbs4=196277', 'target'},
 
 
 
@@ -252,7 +252,7 @@ local AOE = {
 {'Thal\'kiel\'s Consumption', 'Rabbs3=211714', 'target'},
 {'Shadowflame', 'Rabbs3=205181', 'target'},
 {'Demonbolt', 'Rabbs3=157695', 'target'},
-
+{'Implosion', 'Rabbs3=196277', 'target'},
 
 
 }
@@ -322,6 +322,7 @@ local ST = {
 {'211714', 'Rabbs2=211714', 'target'},
 {'Shadowflame', 'Rabbs2=205181', 'target'},
 {'Demonbolt', 'Rabbs2=157695', 'target'},
+{'Implosion', 'Rabbs2=196277', 'target'},
 
 
 
@@ -332,7 +333,7 @@ local ST = {
 local inCombat = {
 	{Keybinds},
     {Interrupts, 'target.interruptAt(15)'},
-    {Survival, 'player.health<100'},
+    {Survival},
     {LCD, 'toggle(lcd)'},
 	{SCD, 'toggle(scd)'},
     {AOE, {'toggle(aoe)'}},

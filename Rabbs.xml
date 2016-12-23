@@ -18,5 +18,6 @@
   <Script file="rotations\hunter\bm.lua" />
   <Script file="rotations\warlock\demo.lua" />
   <Script file="rotations\warlock\destro.lua" />
+  <Script file="rotations\warlock\affliction.lua" />
   <Script file="rotations\mage\fire.lua" />
 </Ui>

@@ -471,4 +471,55 @@ function SlashCmdList.FRENZYREGEN(msg, editbox)
   frenzyRegenFrame:updateVisibility()
 end
 
+NeP.DSL:Register("health.dtps", function(target)
+        
+for GUID, Obj in pairs(NeP.OM:Get('Friendly')) do
+    damageTaken9=damageTaken8 or 0;
+	damageTaken8=damageTaken7 or 0;
+	damageTaken7=damageTaken6 or 0;
+	damageTaken6=damageTaken5 or 0;
+	damageTaken5=damageTaken4 or 0;
+	damageTaken4=damageTaken3 or 0;
+	damageTaken3=damageTaken2 or 0;
+	damageTaken2=damageTaken1 or 0;
+	damageTaken1=damageTaken0 or 0;
+	damageTaken0=Obj.currentLostHealth or 0;
+    local total = 0
+ local function onUpdate(self,elapsed)
+    total = total + elapsed
+    if total >= 0.05 then
+    Obj.currentLostHealth= (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals(target) or 0)));
+        total = 0
+    end
+end
+local f = CreateFrame("frame")
+f:SetScript("OnUpdate", onUpdate)
+    
 
+    local summLostHealth1 = damageTaken0+damageTaken1+damageTaken2+damageTaken3+damageTaken4+damageTaken5+damageTaken6+damageTaken7+damageTaken8+damageTaken9;
+    local summLostHealth2 = damageTaken0+damageTaken1+damageTaken2+damageTaken3+damageTaken4
+    local summLostHealth3 = damageTaken5+damageTaken6+damageTaken7+damageTaken8+damageTaken9
+    local dtps = 0
+	if UnitHealth(target) > 0 then
+		if summLostHealth1 >= 0 then
+                    if summLostHealth2 > summLostHealth3 then
+                        Obj.dtps = ((summLostHealth2 - summLostHealth3)/20) or 0
+                    else
+                        Obj.dtps = ((summLostHealth3 - summLostHealth2)/20) or 0
+                        end
+                    
+		end
+	end
+
+local GUID = UnitGUID(target)
+local Obj = NeP.OM:Get('Friendly')[GUID]
+return Obj and ((summLostHealth2 - summLostHealth3)/20)
+end
+ 
+end)
+
+NeP.DSL:Register("health.predicteddtps", function(target)
+	local GUID = UnitGUID(target)
+	local Obj = NeP.OM:Get('Friendly')[GUID]
+	return Obj and (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals(target) or 0)))
+end)
