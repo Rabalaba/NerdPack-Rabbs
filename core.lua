@@ -523,3 +523,27 @@ NeP.DSL:Register("health.predicteddtps", function(target)
 	local Obj = NeP.OM:Get('Friendly')[GUID]
 	return Obj and (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals(target) or 0)))
 end)
+
+NeP.DSL:Register('rejuv.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('ht.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('wg.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowth.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*11)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('sm.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*9)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('cw.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*8)^2/NeP.DSL:Get('mana')('player'))
+end)

@@ -16,30 +16,30 @@ local Keybinds = {
 }
 
 local ST = {
-{'Cenarion Ward', 'lowest1(TANK).health.predicteddtps>800000', 'lowest1(TANK)'},
+{'Cenarion Ward', 'lowest1(TANK).health.predicteddtps>cw.heals', 'lowest1(TANK)'},
 {'Regrowth', 'player.buff(Clearcasting)&!lastcast(Regrowth)', 'lowestpredicted'},
-{'Swiftmend', 'lowestpredictedd.health.predicteddtps>1000000', 'lowestpredictedd'},
-{'Wild Growth', 'lowestpredicted5.health.predicteddtps>400000', 'lowestpredicted'},
+{'Swiftmend', 'lowestpredictedd.health.predicteddtps>sm.heals', 'lowestpredictedd'},
+{'Wild Growth', 'lowestpredicted5.health.predicteddtps>wg.heals', 'lowestpredicted'},
 {'Flourish', 'lastcast(Wild Growth)'},
 {'Essence of G\'Hanir', 'lastgcd(Flourish)'},
-{'Regrowth', 'lowestpredictedd.health.predicteddtps>600000&lowestpredictedd.health<50&!lastcast(Regrowth)',  'lowestpredictedd'},
+{'Regrowth', 'lowestpredictedd.health.predicteddtps>regrowth.heals&lowestpredictedd.health<50&!lastcast(Regrowth)',  'lowestpredictedd'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)&!lowest2(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
-{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>400000', 'lnbuff2(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(DAMAGER,Rejuvenation)'},
-{'Healing Touch', 'lowestpredictedd.health.predicteddtps>350000',  'lowestpredictedd'},
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff2(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(DAMAGER,Rejuvenation)'},
+{'Healing Touch', 'lowestpredictedd.health.predicteddtps>ht.heals',  'lowestpredictedd'},
     
 
 }
 
 local Moving = {
-{'Swiftmend', 'lowestpredictedd.health.predicteddtps>1000000', 'lowestpredictedd'},
+{'Swiftmend', 'lowestpredictedd.health.predicteddtps>sm.heals', 'lowestpredictedd'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)&!lowest2(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
-{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>400000', 'lnbuff2(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>400000', 'lnbuff1(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff2(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(DAMAGER,Rejuvenation)'},
 }
 
 local inCombat = {
@@ -52,10 +52,10 @@ local inCombat = {
 
 local outCombat = {
 	{Keybinds},
-{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>200000', 'lnbuff1(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>200000', 'lnbuff2(TANK,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>200000', 'lnbuff1(HEALER,Rejuvenation)'},
-{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>200000', 'lnbuff1(DAMAGER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff2(TANK,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(HEALER,Rejuvenation)'},
+{'Rejuvenation', 'lnbuff1(DAMAGER,Rejuvenation).health.predicteddtps>rejuv.heals', 'lnbuff1(DAMAGER,Rejuvenation)'},
 
 
 
