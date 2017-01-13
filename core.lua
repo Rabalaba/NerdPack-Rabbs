@@ -7,7 +7,7 @@ Rabbs.Author = 'Rabbs'
 Rabbs.addonColor = 'FFA500'
 Rabbs.Logo = 'Interface\\AddOns\\NerdPack-Rabbs\\media\\logo.blp'
 Rabbs.Splash = 'Interface\\AddOns\\NerdPack-Rabbs\\media\\splash.blp'
-Rabbs.class = select(3,UnitClass("player"))
+
 
 function Rabbs.ExeOnLoad()
 		Rabbs.Splash()
@@ -18,7 +18,7 @@ end
 --------------------------------------------------------------------------------
 ---------------------------------FERAL------------------------------------------
 --------------------------------------------------------------------------------
-if select(2, UnitClass("player")) ~= "DRUID" then return end
+
 local damageTable = {}
 local updateInterval = 0.1
 local eventIndex = 0
@@ -521,29 +521,175 @@ end)
 NeP.DSL:Register("health.predicteddtps", function(target)
 	local GUID = UnitGUID(target)
 	local Obj = NeP.OM:Get('Friendly')[GUID]
-	return Obj and (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals(target) or 0)))
+	return Obj and (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals('target') or 0)))
 end)
 
-NeP.DSL:Register('rejuv.heals', function()
+NeP.DSL:Register("health.predicteddtpsd", function(target)
+	local GUID = UnitGUID(target)
+	local Obj = NeP.OM:Get('Friendly')[GUID]
+	return Obj and (UnitHealthMax(target)-(UnitHealth(target)-(UnitGetIncomingHeals('target', 'player') or 0)))
+end)
+
+NeP.DSL:Register('rejuvraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
 end)
 
-NeP.DSL:Register('ht.heals', function()
+NeP.DSL:Register('germraid.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*8)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
 end)
 
-NeP.DSL:Register('wg.heals', function()
+NeP.DSL:Register('wgraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
 end)
 
-NeP.DSL:Register('regrowth.heals', function()
+NeP.DSL:Register('regrowthraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*11)^2/NeP.DSL:Get('mana')('player'))
 end)
 
-NeP.DSL:Register('sm.heals', function()
+NeP.DSL:Register('smraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*9)^2/NeP.DSL:Get('mana')('player'))
 end)
 
-NeP.DSL:Register('cw.heals', function()
+NeP.DSL:Register('cwraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*8)^2/NeP.DSL:Get('mana')('player'))
 end)
+
+NeP.DSL:Register('rejuvparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*4)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htpartytank.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*3)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htpartyhealer.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*3.2)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htpartydamager.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*3.2)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('wgparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*4.5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowthparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowthpartytank.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6.6)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowthpartyhealer.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6.8)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowthpartydamager.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('smparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('cwparty.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('rejuvsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*4)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('htsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*3)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('wgsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('regrowthsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('smsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('cwsolo.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*2)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+
+NeP.DSL:Register('chainheal.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE)*GetCombatRatingBonus(CR_CRIT_SPELL)*1.2)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('healingsurge.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE)*GetCombatRatingBonus(CR_CRIT_SPELL)*1.44)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('healingwave.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE)*GetCombatRatingBonus(CR_CRIT_SPELL)*1.44)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+NeP.DSL:Register('riptide.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE)*GetCombatRatingBonus(CR_CRIT_SPELL)*1.6)^2/NeP.DSL:Get('mana')('player'))
+end)
+
+
+NeP.DSL:Register('partycheck', function()
+        if IsInRaid() then
+            return 3
+        elseif IsInGroup() then
+            return 2
+        else
+            return 1
+        end
+end)
+
+NeP.DSL:Register('totemcheck', function()
+        local haveTotem, name = GetTotemInfo(1)
+            if haveTotem then
+            return 2
+        else
+            return 1
+        end
+end)
+
+
+NeP.DSL:Register('checkdebuff', function(debuff)
+	-- If dont have a target, target is friendly or dead
+  
+		local setPrio = {}
+		for _, Obj in pairs(NeP.OM:Get('Enemy')) do
+				if not NeP.DSL:Get('debuff')(Obj.key, debuff) then
+					setPrio[#setPrio+1] = {
+						key = Obj.key,
+						name = Obj.name,
+                        guid = GUID
+					}
+                end
+		end
+		table.sort(setPrio, function(a,b) return a.guid > b.guid end)
+		if setPrio[1] then
+			return setPrio[1]
+        elseif setPrio[2] then
+            return setPrio[2]
+        else
+            return setPrio
+		end
+        
+	
+end)
+

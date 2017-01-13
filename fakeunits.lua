@@ -30,12 +30,13 @@ NeP.FakeUnits:Add('DispelNone', function(spell)
 end)
 
 NeP.FakeUnits:Add('lowestpredicted', function(num, role)
+    local allIncomingHeal = UnitGetIncomingHeals('target') or 0
 	local tempTable = {}
 	for _, Obj in pairs(NeP.OM:GetRoster()) do
 		if not role or (role and Obj.role == role:upper()) then
 			tempTable[#tempTable+1] = {
 				key = Obj.key,
-				healthPredict = Obj.healthPredict
+				healthPredict = (Obj.healthMax - Obj.healthRaw)
 			}
 		end
 	end
@@ -43,32 +44,23 @@ NeP.FakeUnits:Add('lowestpredicted', function(num, role)
 	return tempTable[num] and tempTable[num].key
 end)
 
-NeP.FakeUnits:Add('lowestpredictedd', function(num, role)
-	local tempTable = {}
-	for _, Obj in pairs(NeP.OM:GetRoster()) do 
-		if not role or (role and Obj.role == role:upper()) then
-			tempTable[#tempTable+1] = {
-				key = Obj.key,
-				healthPredicted = (Obj.healthPredict + Obj.dtps)
-			}
-		end
-	end
-	table.sort( tempTable, function(a,b) return a.healthPredicted > b.healthPredicted end )
-	return tempTable[num] and tempTable[num].key
-end)
 
-NeP.FakeUnits:Add('lndebuff', function(debuff)
+
+NeP.FakeUnits:Add('lndebuff', function(num, debuff)
     local tempTable = {}
     for GUID, Obj in pairs(NeP.OM:Get('Enemy')) do
         if not NeP.DSL:Get('debuff')(Obj.key, debuff) then
             tempTable[#tempTable+1] = {
                 key = Obj.key,
-                duration = GUID
+                distance = Obj.distance,
+                guid = GUID
             }
         end
     end
-    table.sort( tempTable, function(a,b) return a.duration < b.duration end )
-    return tempTable[num] and tempTable[num].key
+    table.sort( tempTable, function(a,b) return a.distance < b.distance end )
+    if tempTable[1] ~= 1 then
+            RunMacroText('/targetenemy')
+    end
 end)
 
 NeP.FakeUnits:Add('ldebuff', function(num, debuff)
@@ -77,10 +69,10 @@ NeP.FakeUnits:Add('ldebuff', function(num, debuff)
         if NeP.DSL:Get('debuff')(Obj.key, debuff) then
             tempTable[#tempTable+1] = {
                 key = Obj.key,
-                duration = Obj.distance
+                distance = Obj.distance
             }
         end
     end
-    table.sort( tempTable, function(a,b) return a.duration < b.duration end )
-     return tempTable[3] and tempTable[3].key
+    table.sort( tempTable, function(a,b) return a.distance < b.distance end )
+     return tempTable[num] and tempTable[num].key
 end)

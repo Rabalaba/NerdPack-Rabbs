@@ -1,5 +1,6 @@
 ## Title: |r[|cffFFA500Rabbs|r] Combat Routines
 ## Notes: Custom Combat Routines for NerdPack
+## Dependencies: NerdPack
 ## Interface: 70000
 ## Author: Rabbs
 

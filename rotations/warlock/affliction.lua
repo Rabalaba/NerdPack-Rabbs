@@ -60,7 +60,7 @@ local AOE = {
 }
 
 local ST = {
-{'Agony', 'ldebuff(Agony).range<40', 'ldebuff(Agony)'},
+{'%adots(Agony)'},
 
 
 }

@@ -21,13 +21,10 @@ local Keybinds = {
 
 local Interrupts = {
 	{'Skull Bash'},
-	{'Typhoon', 'talent(4,3)&cooldown(Skull Bash).remains>gcd'},
 	{'Mighty Bash', 'talent(4,1)&cooldown(Skull Bash).remains>gcd'},
 }
 
 local Cooldowns = {
-    {'#trinket1'},
-    {'#trinket2'},
 	{'Frenzied Regeneration', '{player.health<=75&new_incdmg>{0.00004*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=25&new_incdmg>{0.15*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Rage of the Sleeper', '{player.health<=60&new_incdmg>{0.00005*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=20&new_incdmg>{0.2*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Ironfur', 'incdmg(5).phys>incdmg(5).magic&player.rage>90'},

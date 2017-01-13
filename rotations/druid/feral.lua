@@ -82,7 +82,7 @@ local AOE = {
 local ST = {
 
 
-
+{'Incarnation: King of the Jungle', 'Rabbs2=102543'},
 {'Ferocious Bite', 'Rabbs2=22568', 'target'},
 {'Moonfire', 'Rabbs2=155625', 'target'},
 {'Rake', 'Rabbs2=1822', 'target'},
