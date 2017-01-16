@@ -25,14 +25,14 @@ local Interrupts = {
 }
 
 local Cooldowns = {
-	{'Frenzied Regeneration', '{player.health<=75&new_incdmg>{0.00004*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=25&new_incdmg>{0.15*player.health.max}&!player.buff(Frenzied Regeneration)}'},
-    {'Rage of the Sleeper', '{player.health<=60&new_incdmg>{0.00005*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=20&new_incdmg>{0.2*player.health.max}&!player.buff(Frenzied Regeneration)}'},
-    {'Ironfur', 'incdmg(5).phys>incdmg(5).magic&player.rage>90'},
-    {'Mark of Ursol', 'incdmg(5).magic>incdmg(5).phys&player.rage>90'},
-	{'Ironfur', 'incdmg(5).phys>incdmg(5).magic&{!player.buff(Ironfur)&{player.buff(Guardian of Elune)||player.rage>65}}'},
-	{'Mark of Ursol', 'incdmg(5).magic>incdmg(5).phys&{!player.buff(Mark of Ursol)&{player.buff(Guardian of Elune)||player.rage>65}}'},
-    {'Ironfur', 'incdmg(5).phys>incdmg(5)&new_incdmg>{0.00002*player.health*player.health*player.health.max}&player.rage>45'},
-    {'Mark of Ursol', 'incdmg(5).magic>incdmg(5).phys&new_incdmg>{0.00004*player.health*player.health*player.health.max}&player.rage>45'},
+	{'Frenzied Regeneration', '{player.health<=75&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=25&new_incdmg>{0.15*player.health.max}&!player.buff(Frenzied Regeneration)}'},
+    {'Rage of the Sleeper', '{player.health<=60&{new_incdmgp+new_incdmgm}>{0.00005*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=20&new_incdmg>{0.2*player.health.max}&!player.buff(Frenzied Regeneration)}'},
+    {'Ironfur', 'new_incdmgp>new_incdmgm&player.rage>90'},
+    {'Mark of Ursol', 'new_incdmgm>new_incdmgp&player.rage>90'},
+	{'Ironfur', 'new_incdmgp>new_incdmgm&{!player.buff(Ironfur)&{player.buff(Guardian of Elune)||player.rage>65}}'},
+	{'Mark of Ursol', 'new_incdmgm>incdmg(5).phys&{!player.buff(Mark of Ursol)&{player.buff(Guardian of Elune)||player.rage>65}}'},
+    {'Ironfur', 'new_incdmgp>new_incdmgm&{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&player.rage>45'},
+    {'Mark of Ursol', 'new_incdmgm>new_incdmgp.phys&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&player.rage>45'},
     {'Barkskin', 'new_incdmg>{0.00002*player.health*player.health*player.health.max}&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
     {'Barkskin', 'new_incdmg>{0.00006*player.health*player.health*player.health.max}'},
     {'Survival Instincts', '!lastgcd(Barkskin)&new_incdmg>{0.0006*player.health*player.health*player.health.max}&!player.buff(Barkskin)&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},

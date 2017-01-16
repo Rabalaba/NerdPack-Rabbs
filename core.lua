@@ -19,12 +19,14 @@ end
 ---------------------------------FERAL------------------------------------------
 --------------------------------------------------------------------------------
 
-local damageTable = {}
+local damageTableP = {}
+local damageTableM = {}
 local updateInterval = 0.1
 local eventIndex = 0
 local playerGUID
 local timeElapsed = 0
-local damageTP5S = 0
+local damageTP5SP = 0
+local damageTP5SM = 0
 local idFR = 22842
 
 local lowTransparency = 0.7
@@ -106,12 +108,17 @@ function frenzyRegenFrame:countHealing()
   maxHP = UnitHealthMax("player")
   
   versatilityBonus = GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE) + GetVersatilityBonus(CR_VERSATILITY_DAMAGE_DONE)
-  expectedHealing =  math.max(maxHP*0.05,damageTP5S*0.5)*(1+versatilityBonus/100)
+  expectedHealing =  math.max(maxHP*0.05,damageTP5SP*0.5)*(1+versatilityBonus/100)
   legendaryHealing = 0
-  Rabbs.tincdmg = damageTP5S
+  Rabbs.tincdmgP = damageTP5SP
+  Rabbs.tincdmgM = damageTP5SM
 
-NeP.DSL:Register('new_incdmg', function()
-  return Rabbs.tincdmg
+NeP.DSL:Register('new_incdmgp', function()
+  return Rabbs.tincdmgP
+end)
+    
+NeP.DSL:Register('new_incdmgm', function()
+  return Rabbs.tincdmgM
 end)
   
   if IsEquippedItem(137025) and settingsFR.legendaryFlag then -- Skysec's Hold
@@ -277,14 +284,19 @@ frenzyRegenFrame:SetScript("OnEvent",
         local _, _, _, _, _, _, _, _, _, _, _, amount, _, _, _, _, absorbed = ...
         if absorbed == nil then
           absorbed = 0;
+        damageTableP[eventIndex] = {time(), amount+absorbed}
         end
-        damageTable[eventIndex] = {time(), amount+absorbed}      
-       elseif eventType == "SPELL_DAMAGE" or eventType == "SPELL_PERIODIC_DAMAGE" or eventType == "RANGE_DAMAGE" then
-        local _, _, _, _, _, _, _, _, _, _, _, _, _, _, amount, _, _, _, _, absorbed = ...
+       elseif eventType == "SPELL_DAMAGE" or eventType == "SPELL_PERIODIC_DAMAGE" or eventType == "RANGE_DAMAGE"   then
+        local _, _, _, _, _, _, _, _, _, _, _, _, _, spellSchool, amount, _, _, _, _, absorbed = ...
         if absorbed == nil then
           absorbed = 0;
         end
-        damageTable[eventIndex] = {time(), amount+absorbed}
+        if spellSchool == 1 or 3 or 5 or 9 or 17 or 33 or 65 or 127 then
+        damageTableP[eventIndex] = {time(), amount+absorbed}
+        end
+        if spellSchool ~= 1 then
+        damageTableM[eventIndex] = {time(), amount+absorbed}
+        end
         end
       end 
   elseif event == "ACTIVE_TALENT_GROUP_CHANGED" or event == "UPDATE_SHAPESHIFT_FORM" or event == "PLAYER_REGEN_DISABLED" or event == "PLAYER_REGEN_ENABLED" then
@@ -298,18 +310,27 @@ frenzyRegenFrame:SetScript("OnUpdate", function(self, elapsed)
   timeElapsed = timeElapsed + elapsed
   if timeElapsed >= updateInterval then
 		local t = time() - 5
-		for k, v in pairs(damageTable) do
+		for k, v in pairs(damageTableP) do
       if v[1] <= t then
-        damageTable[k] = nil
+        damageTableP[k] = nil
       else
-        damageTP5S = damageTP5S + v[2]
+        damageTP5SP = damageTP5SP + v[2]
       end
-		end		
+		end
+        for k, v in pairs(damageTableM) do
+      if v[1] <= t then
+        damageTableM[k] = nil
+      else
+        damageTP5SM = damageTP5SM + v[2]
+      end
+		end	
     self:countHealing()			
-		damageTP5S = 0
+		damageTP5SP = 0
+        damageTP5SM = 0
 		timeElapsed = 0
   end
 end)
+
 
 local dropDown = CreateFrame("Frame", "FRContextMenu", frenzyRegenFrame, "UIDropDownMenuTemplate")
 UIDropDownMenu_Initialize(dropDown, function(self, level, menuList)
