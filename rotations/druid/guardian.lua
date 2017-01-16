@@ -32,11 +32,11 @@ local Cooldowns = {
 	{'Ironfur', 'new_incdmgp>new_incdmgm&{!player.buff(Ironfur)&{player.buff(Guardian of Elune)||player.rage>65}}'},
 	{'Mark of Ursol', 'new_incdmgm>incdmg(5).phys&{!player.buff(Mark of Ursol)&{player.buff(Guardian of Elune)||player.rage>65}}'},
     {'Ironfur', 'new_incdmgp>new_incdmgm&{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&player.rage>45'},
-    {'Mark of Ursol', 'new_incdmgm>new_incdmgp.phys&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&player.rage>45'},
-    {'Barkskin', 'new_incdmg>{0.00002*player.health*player.health*player.health.max}&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
-    {'Barkskin', 'new_incdmg>{0.00006*player.health*player.health*player.health.max}'},
-    {'Survival Instincts', '!lastgcd(Barkskin)&new_incdmg>{0.0006*player.health*player.health*player.health.max}&!player.buff(Barkskin)&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
-    {'Survival Instincts', '!lastgcd(Barkskin)&new_incdmg>{0.0012*player.health*player.health*player.health.max}'},
+    {'Mark of Ursol', 'new_incdmgm>new_incdmgp&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&player.rage>45'},
+    {'Barkskin', '{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
+    {'Barkskin', '{new_incdmgp+new_incdmgm}>{0.00006*player.health*player.health*player.health.max}'},
+    {'Survival Instincts', '!lastgcd(Barkskin)&{new_incdmgp+new_incdmgm}>{0.0006*player.health*player.health*player.health.max}&!player.buff(Barkskin)&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
+    {'Survival Instincts', '!lastgcd(Barkskin)&{new_incdmgp+new_incdmgm}>{0.0012*player.health*player.health*player.health.max}'},
 }
 
 local AOE = {
