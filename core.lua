@@ -552,23 +552,23 @@ NeP.DSL:Register("health.predicteddtpsd", function(target)
 end)
 
 NeP.DSL:Register('rejuvraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
-end)
-
-NeP.DSL:Register('germraid.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*8)^2/NeP.DSL:Get('mana')('player'))
 end)
 
+NeP.DSL:Register('germraid.heals', function()
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*10)^2/NeP.DSL:Get('mana')('player'))
+end)
+
 NeP.DSL:Register('htraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
 end)
 
 NeP.DSL:Register('wgraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*5.5)^2/NeP.DSL:Get('mana')('player'))
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*7)^2/NeP.DSL:Get('mana')('player'))
 end)
 
 NeP.DSL:Register('regrowthraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*11)^2/NeP.DSL:Get('mana')('player'))
+    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*15)^2/NeP.DSL:Get('mana')('player'))
 end)
 
 NeP.DSL:Register('smraid.heals', function()
@@ -686,6 +686,40 @@ NeP.DSL:Register('totemcheck', function()
         else
             return 1
         end
+end)
+
+NeP.DSL:Register('trinket1', function()
+        if IsUsableItem(GetInventoryItemID("player", GetInventorySlotInfo("Trinket0Slot"))) then
+            local start, duration, enable = GetItemCooldown(GetInventoryItemID("player", GetInventorySlotInfo("Trinket0Slot")))
+					if (duration==0) then
+            return 1
+                
+        else
+            return 0
+        end
+        end
+end)
+
+NeP.DSL:Register('trinket2', function()
+        if IsUsableItem(GetInventoryItemID("player", GetInventorySlotInfo("Trinket1Slot"))) then
+            local start, duration, enable = GetItemCooldown(GetInventoryItemID("player", GetInventorySlotInfo("Trinket1Slot")))
+					if (duration==0) then
+            return 1
+                
+        else
+            return 0
+        end
+        end
+end)
+
+NeP.DSL:Register('deadcheck', function()
+            if UnitExists("target") then
+                if UnitIsDeadOrGhost("target") then
+                    return false
+                else
+                    return true
+                end
+            end
 end)
 
 

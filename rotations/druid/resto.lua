@@ -16,12 +16,14 @@ local Keybinds = {
 }
 
 local RAID = {
+{'/use 13', 'trinket1>0', 'player'},
 {'Cenarion Ward', 'lowest1(TANK).health.predicteddtps>cwraid.heals', 'lowest1(TANK)'},
 {'Regrowth', 'player.buff(Clearcasting)&!lastcast(Regrowth)', 'lowestpredicted'},
 {'Swiftmend', 'lowestpredicted.health.predicteddtps>smraid.heals', 'lowestpredicted'},
 {'Wild Growth', 'lowestpredicted5.health.predicteddtps>wgraid.heals', 'lowestpredicted'},
 {'Flourish', 'lastcast(Wild Growth)'},
-{'Essence of G\'Hanir', 'lastgcd(Flourish)'},
+{'Essence of G\'Hanir', 'talent(7,3)&lastgcd(Flourish)'},
+{'Essence of G\'Hanir', '!talent(7,3)&lastgcd(Wild Growth)&lowest5.health<80'},
     
 {'Regrowth', '!talent(1,3)&lowestpredicted1.health.predicteddtps>regrowthraid.heals&lowestpredicted.health<50&!lastcast(Regrowth)',  'lowestpredicted1'},
 {'Regrowth', '!talent(1,3)&lowestpredicted2.health.predicteddtps>regrowthraid.heals&lowestpredicted.health<50&!lastcast(Regrowth)',  'lowestpredicted2'},
@@ -128,6 +130,8 @@ local PARTY = {
 {'Wild Growth', 'lowestpredicted3.health.predicteddtps>wgparty.heals', 'lowestpredicted'},
 {'Flourish', 'lastcast(Wild Growth)'},
 {'Essence of G\'Hanir', 'lastgcd(Flourish)'},
+{'Essence of G\'Hanir', 'talent(7,3)&lastgcd(Flourish)'},
+{'Essence of G\'Hanir', '!talent(7,3)&lastgcd(Wild Growth)&lowest5.health<80'},
     
 {'Regrowth', 'lowest.health<30', 'lowest'},
     

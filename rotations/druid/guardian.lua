@@ -25,6 +25,8 @@ local Interrupts = {
 }
 
 local Cooldowns = {
+    {'/use 13', 'trinket1>0&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}', 'player'},
+    {'/use 14', 'trinket2>0&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}', 'player'},
 	{'Frenzied Regeneration', '{player.health<=75&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=25&new_incdmg>{0.15*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Rage of the Sleeper', '{player.health<=60&{new_incdmgp+new_incdmgm}>{0.00005*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=20&new_incdmg>{0.2*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Ironfur', 'new_incdmgp>new_incdmgm&player.rage>90'},
@@ -34,6 +36,7 @@ local Cooldowns = {
     {'Ironfur', 'new_incdmgp>new_incdmgm&{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&player.rage>45'},
     {'Mark of Ursol', 'new_incdmgm>new_incdmgp&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&player.rage>45'},
     {'Barkskin', '{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
+    {'Bristling Fur', '{new_incdmgp+new_incdmgm}>{0.00002*player.health*player.health*player.health.max}&player.rage<40'},
     {'Barkskin', '{new_incdmgp+new_incdmgm}>{0.00006*player.health*player.health*player.health.max}'},
     {'Survival Instincts', '!lastgcd(Barkskin)&{new_incdmgp+new_incdmgm}>{0.0006*player.health*player.health*player.health.max}&!player.buff(Barkskin)&!player.buff(Ironfur)&!player.buff(Mark of Ursol)'},
     {'Survival Instincts', '!lastgcd(Barkskin)&{new_incdmgp+new_incdmgm}>{0.0012*player.health*player.health*player.health.max}'},
@@ -48,6 +51,7 @@ local AOE = {
 local ST = {
 	{'Moonfire', 'player.buff(Galactic Guardian)', 'target'},
 	{'Mangle', nil, 'target'},
+    {'Pulverize', 'target.debuff(thrash).count>=3', 'target'},
 	{'Thrash', nil, 'target'},
 	{'Moonfire', '!target.debuff', 'target'},
 	{'Swipe', nil, 'target'},
