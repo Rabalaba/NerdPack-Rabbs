@@ -27,7 +27,7 @@ local Keybinds = {
 }
 
 local Dispell = {
-	{'%dispellall', 'spell(Cleanse).cooldown = 0'},
+	{'%dispelall', 'spell(Cleanse).cooldown = 0'},
 }
 
 local RAID = {
