@@ -21,7 +21,6 @@ local Keybinds = {
 
 local Interrupts = {
 	{'Skull Bash'},
-	{'Mighty Bash', 'talent(4,1)&cooldown(Skull Bash).remains>gcd'},
 }
 
 local Cooldowns = {
@@ -42,11 +41,7 @@ local Cooldowns = {
     {'Survival Instincts', '!lastgcd(Barkskin)&{new_incdmgp+new_incdmgm}>{0.0012*player.health*player.health*player.health.max}'},
 }
 
-local AOE = {
-    {'Mangle', nil,'target'},
-	{'Thrash', nil, 'target'},
-	{'Swipe', nil, 'target'},
-}
+
 
 local ST = {
 	{'Moonfire', 'player.buff(Galactic Guardian)', 'target'},
@@ -61,8 +56,7 @@ local inCombat = {
 	{Keybinds},
     {Interrupts, 'target.interruptAt(1)&toggle(interrupts)&target.infront&target.range<=8'},
 	{Cooldowns, 'toggle(cooldowns)'},
-    {AOE, 'player.area(8).enemies>=5&toggle(multitarget)'},
-	{ST, 'target.range < 8', 'target.infront'}
+	{ST}
 }
 
 local outCombat = {

@@ -21,4 +21,6 @@
   <Script file="rotations\warlock\affliction.lua" />
   <Script file="rotations\mage\fire.lua" />
   <Script file="rotations\shaman\resto.lua" />
+  <Script file="rotations\monk\windwalker.lua" />
+  <Script file="rotations\paladin\holy.lua" />
 </Ui>

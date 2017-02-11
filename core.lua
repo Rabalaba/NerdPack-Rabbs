@@ -494,31 +494,31 @@ end
 
 NeP.DSL:Register("health.missingpredicted", function(target)
         local Obj = NeP.OM:GetRoster()[UnitGUID(target)]
-        return Obj and (Obj.healthMax - Obj.predicted_Raw) or (UnitHealthMax(target)-UnitHealth(target)+(UnitGetTotalHealAbsorbs(target) or 0)-(UnitGetIncomingHeals(target) or 0))
+        return Obj and (UnitHealthMax(target)-UnitHealth(target)+(UnitGetTotalHealAbsorbs(target) or 0)-(UnitGetIncomingHeals(target) or 0))
 end)
 
 NeP.DSL:Register('rejuvraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*9)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*10)
 end)
 
 NeP.DSL:Register('germraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*12)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*4.9/((NeP.DSL:Get('mana')('player')/100)^.66))*3
 end)
 
 NeP.DSL:Register('htraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*6)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*4.9/((NeP.DSL:Get('mana')('player')/100)^.4))*1.5
 end)
 
 NeP.DSL:Register('wgraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*10)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*4.9)*2
 end)
 
 NeP.DSL:Register('regrowthraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*16)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*4.9/((NeP.DSL:Get('mana')('player')/100)^1.25))*5
 end)
 
 NeP.DSL:Register('smraid.heals', function()
-    return math.sqrt((UnitStat("player", 4)*GetMasteryEffect()*9)^2/NeP.DSL:Get('mana')('player'))
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*4.9)*3
 end)
 
 NeP.DSL:Register('cwraid.heals', function()
@@ -614,6 +614,69 @@ NeP.DSL:Register('riptide.heals', function()
     return math.sqrt((UnitStat("player", 4)*GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE)*GetCombatRatingBonus(CR_CRIT_SPELL)*1.6)^2/NeP.DSL:Get('mana')('player'))
 end)
 
+NeP.DSL:Register('holyshockraid.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3)
+end)
+
+NeP.DSL:Register('holyshockparty.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3)
+end)
+
+NeP.DSL:Register('holyshocksolo.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3)
+end)
+
+NeP.DSL:Register('bfraid.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*6)
+end)
+
+NeP.DSL:Register('bfshockparty.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*6)
+end)
+
+NeP.DSL:Register('bfshocksolo.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*6)
+end)
+
+NeP.DSL:Register('folraid.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*7/((NeP.DSL:Get('mana')('player')/100)^.7))
+end)
+
+NeP.DSL:Register('folparty.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*6.5/((NeP.DSL:Get('mana')('player')/100)^.7))
+end)
+
+NeP.DSL:Register('folsolo.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*6/((NeP.DSL:Get('mana')('player')/100)^.7))
+end)
+
+NeP.DSL:Register('holiraid.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3/((NeP.DSL:Get('mana')('player')/100)^.2))
+end)
+
+NeP.DSL:Register('holiparty.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3/((NeP.DSL:Get('mana')('player')/100)^.2))
+end)
+
+NeP.DSL:Register('holisolo.heals', function()
+    return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*3/((NeP.DSL:Get('mana')('player')/100)^.2))
+end)
+
+NeP.DSL:Register('loh.heals', function()
+    return (NeP.DSL:Get('health.actual')('player')*.8)
+end)
+
+NeP.DSL:Register('lohraidtank.heals', function()
+    return (NeP.DSL:Get('health.actual')('player')*1)
+end)
+
+NeP.DSL:Register('targetcheck', function()
+        if UnitExists('target') and (UnitIsEnemy("player","target")) and not UnitIsDeadOrGhost('target') then
+            return 1
+            else
+            return 0
+        end
+end)
 
 NeP.DSL:Register('partycheck', function()
         if IsInRaid() then
@@ -693,4 +756,6 @@ NeP.DSL:Register('checkdebuff', function(debuff)
         
 	
 end)
+
+
 
