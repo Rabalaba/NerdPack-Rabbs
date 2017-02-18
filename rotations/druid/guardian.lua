@@ -17,6 +17,8 @@ local GUI = {
 
 local Keybinds = {
 	{'%pause', 'keybind(alt)'},
+
+
 }
 
 local Interrupts = {
@@ -24,8 +26,6 @@ local Interrupts = {
 }
 
 local Cooldowns = {
-    {'/use 13', 'trinket1>0&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}', 'player'},
-    {'/use 14', 'trinket2>0&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}', 'player'},
 	{'Frenzied Regeneration', '{player.health<=75&{new_incdmgp+new_incdmgm}>{0.00004*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=25&new_incdmg>{0.15*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Rage of the Sleeper', '{player.health<=60&{new_incdmgp+new_incdmgm}>{0.00005*player.health*player.health*player.health.max}&!player.buff(Frenzied Regeneration)}||{player.health<=20&new_incdmg>{0.2*player.health.max}&!player.buff(Frenzied Regeneration)}'},
     {'Ironfur', 'new_incdmgp>new_incdmgm&player.rage>90'},
@@ -44,6 +44,7 @@ local Cooldowns = {
 
 
 local ST = {
+    {'%ressdead(Rebirth)'},
 	{'Moonfire', 'player.buff(Galactic Guardian)', 'target'},
 	{'Mangle', nil, 'target'},
     {'Pulverize', 'target.debuff(thrash).count>=3&talent(7,3)', 'target'},
@@ -61,6 +62,7 @@ local inCombat = {
 
 local outCombat = {
 	{Keybinds},
+    {'%ressdead(Revive)'},
 }
 
 NeP.CR:Add(104, '[|cff'..Rabbs.addonColor..'Rabbs|r] DRUID - Guardian', inCombat, outCombat,exeOnLoad)

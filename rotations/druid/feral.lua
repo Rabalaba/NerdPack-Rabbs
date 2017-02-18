@@ -25,6 +25,7 @@ local Precombat = {
 }
 
 local Survival = {
+    {'108238', 'player.health <40&talent(2,1)'},
 	{'61336', 'player.health <25'},
 }
 

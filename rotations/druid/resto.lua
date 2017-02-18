@@ -16,7 +16,7 @@ local Keybinds = {
 }
 
 local RAID = {
-{'/use 13', 'trinket1>0', 'player'},
+{'%ressdead(Rebirth)'},
 {'Cenarion Ward', 'lowest1(TANK).health.missingpredicted>cwraid.heals', 'lowest1(TANK)'},
 {'Regrowth', 'player.buff(Clearcasting)&!lastcast(Regrowth)', 'lowestpredicted'},
 {'Swiftmend', 'lowestpredicted.health.missingpredicted>smraid.heals', 'lowestpredicted'},
@@ -178,6 +178,7 @@ local RAID = {
 }
 
 local PARTY = {
+{'%ressdead(Rebirth)'},
 {'Cenarion Ward', 'lowest1(TANK).health.missingpredicted>cwparty.heals', 'lowest1(TANK)'},
 {'Regrowth', 'player.buff(Clearcasting)&!lastcast(Regrowth)', 'lowestpredicted'},
 {'Swiftmend', 'lowestpredicted.health.missingpredicted>smparty.heals', 'lowestpredicted'},
@@ -243,6 +244,7 @@ local PARTY = {
 }
 
 local SOLO = {
+{'%ressdead(Rebirth)'},
 {'Cenarion Ward', 'player.health.missingpredicted>cwsolo.heals', 'player'},
 {'Regrowth', 'player.buff(Clearcasting)&!lastcast(Regrowth)', 'player'},
 {'Swiftmend', 'player.health.missingpredicted>smsolo.heals', 'player'},
@@ -256,6 +258,7 @@ local SOLO = {
 }
 
 local Moving = {
+{'%ressdead(Rebirth)'},
 {'Swiftmend', 'lowestpredicted.health.missingpredicted>smparty.heals', 'lowestpredicted'},
 {'Lifebloom', '!lowest1(TANK).buff(Lifebloom)&!lowest2(TANK).buff(Lifebloom)', 'lowest1(TANK)'},
 {'Rejuvenation', 'talent(6,3)&!talent(1,3)&lnbuff1(TANK,Rejuvenation (Germination)).health.missingpredicted>germraid.heals&lnbuff1(TANK,Rejuvenation (Germination)).buff(Rejuvenation)', 'lnbuff1(TANK,Rejuvenation (Germination))'},
@@ -382,6 +385,7 @@ local inCombat = {
 
 local outCombat = {
 	{Keybinds},
+{'%ressdead(Revitalize)'},
 {'Rejuvenation', 'lnbuff1(TANK,Rejuvenation).health.missingpredicted>rejuv.heals', 'lnbuff1(TANK,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff2(TANK,Rejuvenation).health.missingpredicted>rejuv.heals', 'lnbuff2(TANK,Rejuvenation)'},
 {'Rejuvenation', 'lnbuff1(HEALER,Rejuvenation).health.missingpredicted>rejuv.heals', 'lnbuff1(HEALER,Rejuvenation)'},

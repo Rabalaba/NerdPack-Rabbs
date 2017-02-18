@@ -107,6 +107,7 @@ local SCD = {
 {'Grimoire of Sacrifice', 'Rabbs1=108503','target'},
 {'Dimensional Rift', 'Rabbs1=196586','target'},
 {'Channel Demonfire', 'Rabbs1=196447','target'},
+{'Summon Darkglare', 'Rabbs1=205180', 'target'},
  
 }
 
@@ -172,6 +173,7 @@ local LCD = {
 {'Grimoire of Sacrifice', 'Rabbs4=108503','target'},
 {'Dimensional Rift', 'Rabbs4=196586','target'},
 {'Channel Demonfire', 'Rabbs4=196447','target'},
+{'Summon Darkglare', 'Rabbs4=205180', 'target'},
 
 
 
@@ -240,7 +242,7 @@ local AOE = {
 {'Grimoire of Sacrifice', 'Rabbs3=108503','target'},
 {'Dimensional Rift', 'Rabbs3=196586','target'},
 {'Channel Demonfire', 'Rabbs3=196447','target'},
-
+{'Summon Darkglare', 'Rabbs3=205180', 'target'},
 
 
 }

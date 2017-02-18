@@ -10,6 +10,7 @@
   <Script file="rotations\druid\resto.lua" />
   <Script file="rotations\druid\feral.lua" />
   <Script file="rotations\druid\guardian.lua" />
+   <Script file="rotations\druid\moonkin.lua" />
   <Script file="rotations\priest\discipline.lua" />
   <Script file="rotations\priest\shadow.lua" />
   <Script file="rotations\dk\frost.lua" />

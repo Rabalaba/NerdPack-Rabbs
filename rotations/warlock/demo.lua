@@ -113,6 +113,7 @@ local SCD = {
 {'Shadowflame', 'Rabbs1=205181', 'target'},
 {'Demonbolt', 'Rabbs1=157695', 'target'},
 {'Implosion', 'Rabbs1=196277', 'target'},
+{'Summon Darkglare', 'Rabbs1=205180', 'target'},
  
 }
 
@@ -182,6 +183,7 @@ local LCD = {
 {'Shadowflame', 'Rabbs4=205181', 'target'},
 {'Demonbolt', 'Rabbs4=157695', 'target'},
 {'Implosion', 'Rabbs4=196277', 'target'},
+{'Summon Darkglare', 'Rabbs4=205180', 'target'},
 
 
 
@@ -253,6 +255,7 @@ local AOE = {
 {'Shadowflame', 'Rabbs3=205181', 'target'},
 {'Demonbolt', 'Rabbs3=157695', 'target'},
 {'Implosion', 'Rabbs3=196277', 'target'},
+{'Summon Darkglare', 'Rabbs3=205180', 'target'},
 
 
 }
@@ -323,6 +326,7 @@ local ST = {
 {'Shadowflame', 'Rabbs2=205181', 'target'},
 {'Demonbolt', 'Rabbs2=157695', 'target'},
 {'Implosion', 'Rabbs2=196277', 'target'},
+{'Summon Darkglare', 'Rabbs2=205180', 'target'},
 
 
 

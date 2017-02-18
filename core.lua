@@ -757,5 +757,30 @@ NeP.DSL:Register('checkdebuff', function(debuff)
 	
 end)
 
+local lib = {}
 
+function lib.Dot(spell)
+  for guid, obj in pairs(NeP.OM:Get('Enemy')) do
+    if NeP.DSL:Get('debuff.duration')(obj.key, "Agony") >5 and NeP.DSL:Get('debuff.duration')(obj.key, "Corruption") >5 and NeP.DSL:Get('debuff.duration')(obj.key, "Siphon Life") >5 then
+        TargetUnit(obj.key)
+    
+    elseif not NeP.DSL:Get('debuff')(obj.key, "Agony") or NeP.DSL:Get('debuff.duration')(obj.key, "Agony") <5  then
+     CastSpellByName("Agony", obj.key)
+    elseif not NeP.DSL:Get('debuff')(obj.key, "Corruption") or NeP.DSL:Get('debuff.duration')(obj.key, "Corruption") <5 then
+     CastSpellByName("Corruption", obj.key)
+    elseif not NeP.DSL:Get('debuff')(obj.key, "Siphon Life") or NeP.DSL:Get('debuff.duration')(obj.key, "Siphon Life") <5 then
+     CastSpellByName("Siphon Life", obj.key)
+    else
+     return true
+    end
+  end
+end
+
+NeP.Library:Add('Rabbs', lib)
+
+NeP.Listener:Add('LFGAUTO', 'LFDFrame_OnEvent', function(self, event, ...)
+  if 1 == 1 then
+    AcceptProposal()
+  end
+end)
 
