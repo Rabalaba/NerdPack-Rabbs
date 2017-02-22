@@ -29,6 +29,7 @@ local GUI = {
 
 local Keybinds = {
 	{'%pause', 'keybind(alt)'},
+    {'%ressdead(20707)', nil, 'target'},
 }
 
 local Precombat = {
@@ -61,8 +62,8 @@ local SCD = {
 {'Fear','Rabbs1=5782','target'},
 {'Grimoire of Sacrifice','Rabbs1=108503','target'},
 {'Health Funnel','Rabbs1=755','target'},
-{'Life Tap','Rabbs1=1454','target'},
-{'Reap Souls','Rabbs1=216698','target'},
+{'Life Tap','Rabbs1=1454&player.mana<50&player.health>40','target'},
+{'Reap Souls','Rabbs1=216698&!player.buff(Deadwind Harvester)','target'},
 {'Revive Battle Pets','Rabbs1=125439','target'},
 {'Ritual of Summoning','Rabbs1=698','target'},
 {'Seed of Corruption','Rabbs1=27243','target'},
