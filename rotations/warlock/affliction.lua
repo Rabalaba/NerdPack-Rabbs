@@ -95,6 +95,8 @@ local SCD = {
 }
 
 local LCD = {
+{'#trinket1', 'Rabbs5>0'},
+{'#trinket2', 'Rabbs5>0'},
 {'Agony','Rabbs4=980','target'},
 {'Banish','Rabbs4=710','target'},
 {'Corruption','Rabbs4=172','target'},

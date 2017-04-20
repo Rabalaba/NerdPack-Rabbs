@@ -248,6 +248,8 @@ local AOE = {
 }
 
 local ST = {
+{'#trinket1'},
+{'#trinket2'},
 {'Armor Skills', 'Rabbs2=76276', 'target'},
 {'Artisan Riding', 'Rabbs2=34091', 'target'},
 {'Apprentice Riding', 'Rabbs2=33388', 'target'},
@@ -308,6 +310,7 @@ local ST = {
 {'Grimoire of Sacrifice', 'Rabbs2=108503','target'},
 {'Dimensional Rift', 'Rabbs2=196586','target'},
 {'Channel Demonfire', 'Rabbs2=196447','target'},
+{'Shadowburn', 'Rabbs2=17877', 'target'},
     
 
 
