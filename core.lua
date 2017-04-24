@@ -492,10 +492,6 @@ function SlashCmdList.FRENZYREGEN(msg, editbox)
   frenzyRegenFrame:updateVisibility()
 end
 
-NeP.DSL:Register("health.missingpredicted", function(target)
-        local Obj = NeP.OM:GetRoster()[UnitGUID(target)]
-        return Obj and (UnitHealthMax(target)-UnitHealth(target)+(UnitGetTotalHealAbsorbs(target) or 0)-(UnitGetIncomingHeals(target) or 0))
-end)
 
 NeP.DSL:Register('rejuvraid.heals', function()
     return (((100+GetMasteryEffect())/100)*((100+GetCritChance())/100)*(UnitStat("player", 4))*10)

@@ -76,6 +76,7 @@ local SCD = {
 {'Spell Lock','Rabbs1=119910','target'},
 {'Spell Lock','Rabbs1=19647','target'},
 {'Summon Doomguard','Rabbs1=18540','target'},
+'Summon Doomguard','Rabbs1=18540','target'},
 {'Summon Felhunter','Rabbs1=691','target'},
 {'Summon Imp','Rabbs1=688','target'},
 {'Summon Infernal','Rabbs1=1122','target'},
@@ -95,8 +96,6 @@ local SCD = {
 }
 
 local LCD = {
-{'#trinket1', 'Rabbs5>0'},
-{'#trinket2', 'Rabbs5>0'},
 {'Agony','Rabbs4=980','target'},
 {'Banish','Rabbs4=710','target'},
 {'Corruption','Rabbs4=172','target'},

@@ -36,6 +36,7 @@ local Precombat = {
 }
 
 local Survival = {
+{'1454', '!player.buff(235156)'},
 { "/targetenemy [noexists]", "!target.exists" },
 {'Drain Life', 'player.health<30', 'target'},
 }
@@ -323,7 +324,7 @@ local ST = {
 local inCombat = {
 	{Keybinds},
     {Interrupts, 'target.interruptAt(15)'},
-    {Survival, 'player.health<100'},
+    {Survival},
     {LCD, 'toggle(lcd)'},
 	{SCD, 'toggle(scd)'},
     {AOE, {'toggle(aoe)'}},
