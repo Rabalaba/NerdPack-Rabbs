@@ -83,8 +83,19 @@ local SCD = {
 {'Wisdom of the Four Winds','Rabbs1=115913','target'},
 {'Zen Pilgrimage','Rabbs1=126892','target'},
 {'Chi Wave', 'Rabbs1=115098', 'target'},
-
- 
+{'Chi Burst', 'Rabbs1=123986', 'target'},
+{'Tiger\'s Lust', 'Rabbs1=116841', 'target'},
+{'Energizing Elixir', 'Rabbs1=115288', 'target'},
+{'Ring of Peace', 'Rabbs1=116844', 'target'},
+{'Summon Black Ox Statue', 'Rabbs1=115315', 'target'},
+{'Leg Sweep', 'Rabbs1=119381', 'target'},
+{'Healing Elixir', 'Rabbs1=122281', 'target'},
+{'Diffuse Magic', 'Rabbs1=122783', 'target'},
+{'Dampen Harm', 'Rabbs1=122278', 'target'},
+{'Rushing Jade Wind', 'Rabbs1=116847', 'target'},
+{'113904', 'Rabbs1=113904', 'target'},
+{'Whirling Dragon Punch', 'Rabbs1=152175', 'target'},
+{'Serenity', 'Rabbs1=152173', 'target'},
 }
 
 local LCD = {
@@ -123,6 +134,19 @@ local LCD = {
 {'Wisdom of the Four Winds','Rabbs4=115913','target'},
 {'Zen Pilgrimage','Rabbs4=126892','target'},
 {'Chi Wave', 'Rabbs4=115098', 'target'},
+{'Chi Burst', 'Rabbs4=123986', 'target'},
+{'Tiger\'s Lust', 'Rabbs4=116841', 'target'},
+{'Energizing Elixir', 'Rabbs4=115288', 'target'},
+{'Ring of Peace', 'Rabbs4=116844', 'target'},
+{'Summon Black Ox Statue', 'Rabbs4=115315', 'target'},
+{'Leg Sweep', 'Rabbs4=119381', 'target'},
+{'Healing Elixir', 'Rabbs4=122281', 'target'},
+{'Diffuse Magic', 'Rabbs4=122783', 'target'},
+{'Dampen Harm', 'Rabbs4=122278', 'target'},
+{'Rushing Jade Wind', 'Rabbs4=116847', 'target'},
+{'123904', 'Rabbs4=123904', 'target'},
+{'Whirling Dragon Punch', 'Rabbs4=152175', 'target'},
+{'Serenity', 'Rabbs4=152173', 'target'},
 
 }
 
@@ -162,6 +186,20 @@ local AOE = {
 {'Wisdom of the Four Winds','Rabbs3=115913','target'},
 {'Zen Pilgrimage','Rabbs3=126892','target'},
 {'Chi Wave', 'Rabbs3=115098', 'target'},
+{'Chi Burst', 'Rabbs3=123986', 'target'},
+{'Tiger\'s Lust', 'Rabbs3=116841', 'target'},
+{'Energizing Elixir', 'Rabbs3=115288', 'target'},
+{'Ring of Peace', 'Rabbs3=116844', 'target'},
+{'Summon Black Ox Statue', 'Rabbs3=115315', 'target'},
+{'Leg Sweep', 'Rabbs3=119381', 'target'},
+{'Healing Elixir', 'Rabbs3=122281', 'target'},
+{'Diffuse Magic', 'Rabbs3=122783', 'target'},
+{'Dampen Harm', 'Rabbs3=122278', 'target'},
+{'Rushing Jade Wind', 'Rabbs3=116847', 'target'},
+{'123904', 'Rabbs3=123904', 'target'},
+{'Whirling Dragon Punch', 'Rabbs3=152175', 'target'},
+{'Serenity', 'Rabbs3=152173', 'target'},
+
 }
 
 local ST = {
@@ -200,6 +238,20 @@ local ST = {
 {'Wisdom of the Four Winds','Rabbs2=115913','target'},
 {'Zen Pilgrimage','Rabbs2=126892','target'},
 {'Chi Wave', 'Rabbs2=115098', 'target'},
+{'Chi Burst', 'Rabbs2=123986', 'target'},
+{'Tiger\'s Lust', 'Rabbs2=116841', 'target'},
+{'Energizing Elixir', 'Rabbs2=115288', 'target'},
+{'Ring of Peace', 'Rabbs2=116844', 'target'},
+{'Summon Black Ox Statue', 'Rabbs2=115315', 'target'},
+{'Leg Sweep', 'Rabbs2=119381', 'target'},
+{'Healing Elixir', 'Rabbs2=122281', 'target'},
+{'Diffuse Magic', 'Rabbs2=122783', 'target'},
+{'Dampen Harm', 'Rabbs2=122278', 'target'},
+{'Rushing Jade Wind', 'Rabbs2=116847', 'target'},
+{'123904', 'Rabbs2=123904', 'target'},
+{'Whirling Dragon Punch', 'Rabbs2=152175', 'target'},
+{'Serenity', 'Rabbs2=152173', 'target'},
+
 
 }
 
