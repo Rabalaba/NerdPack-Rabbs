@@ -76,7 +76,6 @@ local SCD = {
 {'Spell Lock','Rabbs1=119910','target'},
 {'Spell Lock','Rabbs1=19647','target'},
 {'Summon Doomguard','Rabbs1=18540','target'},
-'Summon Doomguard','Rabbs1=18540','target'},
 {'Summon Felhunter','Rabbs1=691','target'},
 {'Summon Imp','Rabbs1=688','target'},
 {'Summon Infernal','Rabbs1=1122','target'},
